@@ -2,11 +2,15 @@
 
 このプロジェクトは、Google Maps からレビューをスクレイピングするためのツールです。SerpAPI を使用して Google Maps のレビューデータを取得します。
 
+This project provides a tool for scraping reviews from Google Maps. It uses SerpAPI to retrieve review data from Google Maps.
+
 ## 事前準備 Prerequisites
 
 SerpAPI の API キーが必要です。SerpAPI の公式サイト で取得してください。
 poetry がインストールされていることを確認してください。
-This project provides a tool for scraping reviews from Google Maps. It uses SerpAPI to retrieve review data from Google Maps.
+
+You will need an API key from SerpAPI. Obtain it from SerpAPI's official website.
+Ensure you have poetry installed.
 
 ## インストール Installation
 
