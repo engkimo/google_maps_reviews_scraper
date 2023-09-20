@@ -8,9 +8,11 @@ This project provides a tool for scraping reviews from Google Maps. It uses Serp
 
 SerpAPI の API キーが必要です。SerpAPI の公式サイト で取得してください。
 poetry がインストールされていることを確認してください。
+URL ファイルからレビューを取得する場合は、url.txt というファイルを用意して、その中に URL のリストを含めてください。
 
 You will need an API key from SerpAPI. Obtain it from SerpAPI's official website.
 Ensure you have poetry installed.
+Prepare a url.txt file containing the list of URLs if you intend to fetch reviews using a file.
 
 ## インストール Installation
 
@@ -24,12 +26,14 @@ URL ファイルからのレビューの取得 Fetching reviews from a file of U
 
 ```
 poetry run python [ファイル名] --file [URL リストを含むファイルのパス] --api_key [SerpAPI の API キー]
+poetry run python [filename] --file [path_to_file_containing_URLs] --api_key [Your_SerpAPI_API_key]
 ```
 
 クエリからのレビューの取得 Fetching reviews using a query::
 
 ```
 poetry run python [ファイル名] --query [検索クエリ] --latitude [緯度] --longitude [経度] --api_key [SerpAPI の API キー]
+poetry run python [filename] --query [search_query] --latitude [latitude] --longitude [longitude] --api_key [Your_SerpAPI_API_key]
 ```
 
 ## オプション Options
