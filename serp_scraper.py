@@ -26,7 +26,7 @@ class ReviewsScraper:
         results = self._make_search(params)
 
         self._save_reviews(data_id, cnt, results)
-        self._save_info(data_id, results)  # こちらで_info.jsonを保存
+        self._save_info(data_id, results)
 
         next_page_token = results.get(
             "serpapi_pagination", {}).get("next_page_token")
@@ -36,7 +36,7 @@ class ReviewsScraper:
             params["next_page_token"] = next_page_token
             results = self._make_search(params)
 
-            self._save_reviews(data_id, cnt, results)  # レビューの保存
+            self._save_reviews(data_id, cnt, results)
 
             next_page_token = results.get("serpapi_pagination", {}).get(
                 "next_page_token"
@@ -76,7 +76,6 @@ class ReviewsScraper:
 def extract_info_from_url(url: str) -> Tuple[str, float, float]:
     parsed = urllib.parse.urlparse(url)
 
-    # print(parsed.path.split("/")[4])
     place_info_list = []
     match = re.search(r"data=(!.+)", parsed.path)
     if match:
@@ -89,6 +88,7 @@ def extract_info_from_url(url: str) -> Tuple[str, float, float]:
     if not place_info_list:
         raise ValueError(f"'data' parameter not found in URL: {url}")
 
+    # FIXME: ここで異なるパスのdata=がある場合に対応できない。（今のところ遭遇はしていない。）
     query = urllib.parse.unquote(parsed.path.split("/")[3])
     coordinates = parsed.path.split("/")[4].split("@")[1].split(",")[0:2]
     latitude = float(coordinates[0])
